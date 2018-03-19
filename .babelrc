@@ -1,0 +1,11 @@
+{
+  "presets": [
+    ["@babel/preset-env", { "targets": { "node": true } }],
+    "stage-3",
+    "react"
+  ],
+  "plugins": [
+    "transform-class-properties",
+    "react-flow-props-to-prop-types"
+  ]
+}

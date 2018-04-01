@@ -1,7 +1,7 @@
 import { readFile } from 'fs'
 import { resolve as pathResolve } from 'path'
 import appRootDir from 'app-root-dir'
-import config from '../../../config'
+import config from '../../config'
 
 export default function offlinePageMiddleware(req, res, next) {
   if (typeof res.locals.nonce !== 'string') {

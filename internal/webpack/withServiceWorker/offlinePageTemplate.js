@@ -1,6 +1,8 @@
 import React from 'react'
 import { renderToStaticMarkup } from 'react-dom/server'
-import HTML from '../../../src/app/components/HTML'
+import requireFromUserland from '../../utils/requireFromUserland'
+
+const HTML = requireFromUserland('src/app/components/HTML').default
 
 module.exports = function generate(context) {
   const ClientConfig = context.htmlWebpackPlugin.options.custom.ClientConfig

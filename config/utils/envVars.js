@@ -1,5 +1,4 @@
 import appRootDir from 'app-root-dir'
-import colors from 'colors/safe'
 import dotenv from 'dotenv'
 import fs from 'fs'
 import path from 'path'
@@ -18,9 +17,7 @@ function registerEnvFile() {
   const envFilePath = envFileResolutionOrder.find(filePath => fs.existsSync(filePath))
 
   if (envFilePath) {
-    console.log(
-      colors.bgBlue.white(`==> Registering environment variables from: ${envFilePath}`),
-    )
+    console.log(`==> Registering environment variables from: ${envFilePath}`)
     dotenv.config({ path: envFilePath })
   }
 }

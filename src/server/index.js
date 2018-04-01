@@ -3,13 +3,15 @@ import cookieParser from 'cookie-parser'
 import compression from 'compression'
 import { resolve as pathResolve } from 'path'
 import appRootDir from 'app-root-dir'
-import reactApplication from './middlewares/reactApplication'
+import requireFromUserland from '../../internal/utils/requireFromUserland'
 import security from './middlewares/security'
 import clientBundle from './middlewares/clientBundle'
 import serviceWorker from './middlewares/serviceWorker'
 import offlinePage from './middlewares/offlinePage'
 import errorHandlers from './middlewares/errorHandlers'
 import config from '../../config'
+
+const reactApplication = requireFromUserland('src/server/middlewares/reactApplication')
 
 const app = express()
 

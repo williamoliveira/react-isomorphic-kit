@@ -6,8 +6,6 @@ import values from '../values'
 
 const clientConfig = filterWithRules(values.clientConfigFilter, values)
 
-const serializedClientConfig = serialize(clientConfig)
-
 function ClientConfig({ nonce }) {
   return (
     <script
@@ -20,6 +18,8 @@ function ClientConfig({ nonce }) {
     />
   )
 }
+
+const serializedClientConfig = serialize(clientConfig)
 
 ClientConfig.propTypes = {
   nonce: PropTypes.string.isRequired,

@@ -11,7 +11,7 @@ import offlinePage from './middlewares/offlinePage'
 import errorHandlers from './middlewares/errorHandlers'
 import config from '../../config'
 
-const reactApplication = requireFromUserland('src/server/middlewares/reactApplication')
+const reactApplication = requireFromUserland('src/server')
 
 const app = express()
 

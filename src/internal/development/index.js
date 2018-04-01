@@ -13,9 +13,15 @@ const onResponsive = (hostname, port, cb) =>
   setTimeout(
     () =>
       http
-        .get({
-          hostname, port, path: '/', agent: false,
-        }, cb)
+        .get(
+          {
+            hostname,
+            port,
+            path: '/',
+            agent: false,
+          },
+          cb,
+        )
         .on('error', () => onResponsive(hostname, port, cb)),
     1000,
   )

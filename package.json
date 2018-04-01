@@ -8,16 +8,12 @@
     "node": ">=6"
   },
   "scripts": {
-    "build": "babel-node internal/scripts/build --optimize",
-    "build:dev": "babel-node internal/scripts/build --trace-depracation",
-    "clean": "cross-env babel-node internal/scripts/clean",
-    "develop": "cross-env DEPLOYMENT=development babel-node internal/development --trace-deprecation",
-    "lint": "eslint client server shared config internal",
-    "start": "cross-env NODE_ENV=production node build/server",
+    "build": "babel src --out-dir lib",
+    "lint": "eslint client src",
     "test": "jest",
     "test:coverage": "jest --coverage",
     "precommit": "lint-staged",
-    "format": "prettier-eslint \"+(shared|client|server|config)/**/*.js\" --write"
+    "format": "prettier-eslint \"+(src)/**/*.js\" --write"
   },
   "lint-staged": {
     "*.js": [
@@ -27,7 +23,7 @@
   },
   "jest": {
     "collectCoverageFrom": [
-      "shared/**/*.{js,jsx}"
+      "src/**/*.{js,jsx}"
     ],
     "snapshotSerializers": [
       "<rootDir>/node_modules/enzyme-to-json/serializer"
@@ -105,6 +101,7 @@
     "uuid": "3.2.1"
   },
   "devDependencies": {
+    "@babel/cli": "^7.0.0-beta.42",
     "@babel/core": "7.0.0-beta.42",
     "@babel/node": "7.0.0-beta.42",
     "@babel/preset-env": "7.0.0-beta.42",

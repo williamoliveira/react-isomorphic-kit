@@ -212,6 +212,8 @@ export default function (buildOptions) {
                   path.resolve(appRootDir.get(), srcPath),
                 ),
                 ifProdClient(path.resolve(appRootDir.get(), 'src/html')),
+                path.resolve(__dirname, '../../lib'),
+                path.resolve(__dirname, '../../src'),
               ]),
             },
 

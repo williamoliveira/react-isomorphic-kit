@@ -6,8 +6,7 @@ import HotNodeServer from './hotNodeServer'
 import HotClientServer from './hotClientServer'
 import createVendorDLL from './createVendorDLL'
 import webpackConfigFactory from '../webpack/configFactory'
-import config from '../../config'
-import values from '../../config/values'
+import config, { set as setConfig } from '../../config'
 
 const usesDevVendorDLL = bundleConfig =>
   bundleConfig.devVendorDLL != null && bundleConfig.devVendorDLL.enabled
@@ -65,7 +64,7 @@ class HotDevelopment {
     this.hotClientServer = null
     this.hotNodeServers = []
 
-    values.clientDevServerPort = clientPort
+    setConfig('clientDevServerPort', clientPort)
     process.env.PORT = port
     process.env.CLIENT_DEV_PORT = clientPort
 

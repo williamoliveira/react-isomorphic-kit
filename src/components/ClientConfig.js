@@ -1,12 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import serialize from 'serialize-javascript'
-import filterWithRules from '../../internal/utils/objects/filterWithRules'
-import values from '../values'
+import filterWithRules from '../internal/utils/objects/filterWithRules'
 
-const clientConfig = filterWithRules(values.clientConfigFilter, values)
+function ClientConfig({ config, nonce }) {
+  const clientConfig = filterWithRules(config.clientConfigFilter, config)
+  const serializedClientConfig = serialize(clientConfig)
 
-function ClientConfig({ nonce }) {
   return (
     <script
       type="text/javascript"
@@ -19,9 +19,9 @@ function ClientConfig({ nonce }) {
   )
 }
 
-const serializedClientConfig = serialize(clientConfig)
-
 ClientConfig.propTypes = {
+  // eslint-disable-next-line react/forbid-prop-types
+  config: PropTypes.object.isRequired,
   nonce: PropTypes.string.isRequired,
 }
 

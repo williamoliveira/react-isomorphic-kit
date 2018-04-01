@@ -4,7 +4,7 @@ import path from 'path'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
 import OfflinePlugin from 'offline-plugin'
 import config from '../../../config'
-import ClientConfig from '../../../config/components/ClientConfig'
+import ClientConfig from '../../../components/ClientConfig'
 
 export default function withServiceWorker(webpackConfig, bundleConfig) {
   if (!config('serviceWorker.enabled')) {

@@ -8,7 +8,7 @@
     "node": ">=6"
   },
   "scripts": {
-    "build": "babel src --out-dir lib",
+    "build": "rm -r lib; babel src --out-dir lib",
     "lint": "eslint client src",
     "test": "jest",
     "test:coverage": "jest --coverage",

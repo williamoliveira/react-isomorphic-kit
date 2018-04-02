@@ -3,7 +3,7 @@ import appRootDir from 'app-root-dir'
 import { resolve as pathResolve } from 'path'
 import webpackConfigFactory from '../webpack/configFactory'
 import { exec } from '../utils'
-import config from '../../config'
+import config from '../config'
 
 const [x, y, ...args] = process.argv
 

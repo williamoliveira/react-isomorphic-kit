@@ -3,7 +3,7 @@ import appRootDir from 'app-root-dir'
 import path from 'path'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
 import OfflinePlugin from 'offline-plugin'
-import config from '../../../config'
+import config from '../../config'
 import ClientConfig from '../../../components/ClientConfig'
 
 export default function withServiceWorker(webpackConfig, bundleConfig) {

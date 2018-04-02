@@ -7,11 +7,11 @@ import HardSourceWebpackPlugin from 'hard-source-webpack-plugin'
 import path from 'path'
 import webpack from 'webpack'
 import { log } from '../utils'
-import { ifElse } from '../utils/logic'
-import { mergeDeep } from '../utils/objects'
-import { clean } from '../utils/arrays'
+import { ifElse } from '../../utils/logic'
+import { mergeDeep } from '../../utils/objects'
+import { clean } from '../../utils/arrays'
 import withServiceWorker from './withServiceWorker'
-import config from '../../config'
+import config from '../config'
 
 export default function (buildOptions) {
   const { target, optimize = false } = buildOptions

@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import serialize from 'serialize-javascript'
-import filterWithRules from '../internal/utils/objects/filterWithRules'
+import filterWithRules from '../utils/objects/filterWithRules'
 
 function ClientConfig({ config, nonce }) {
   const clientConfig = filterWithRules(config.clientConfigFilter, config)

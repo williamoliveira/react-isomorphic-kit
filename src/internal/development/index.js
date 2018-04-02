@@ -5,7 +5,7 @@ import detect from 'detect-port-alt'
 import chokidar from 'chokidar'
 import { resolve as pathResolve } from 'path'
 import appRootDir from 'app-root-dir'
-import config from '../../config'
+import config from '../config'
 import { log } from '../utils'
 
 const host = config('host')

@@ -6,7 +6,7 @@ import HotNodeServer from './hotNodeServer'
 import HotClientServer from './hotClientServer'
 import createVendorDLL from './createVendorDLL'
 import webpackConfigFactory from '../webpack/configFactory'
-import config, { set as setConfig } from '../../config'
+import config, { set as setConfig } from '../config'
 
 const usesDevVendorDLL = bundleConfig =>
   bundleConfig.devVendorDLL != null && bundleConfig.devVendorDLL.enabled

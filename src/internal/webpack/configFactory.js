@@ -48,6 +48,14 @@ export default function (buildOptions) {
 
   const localIdentName = ifDev('[name]_[local]_[hash:base64:5]', '[hash:base64:10]')
 
+  const postCssLoaderOptions = {
+    plugins: () => [
+      require('postcss-simple-vars'),
+      require('postcss-cssnext'),
+      require('postcss-import'),
+    ],
+  }
+
   let webpackConfig = {
     mode: ifDev('development', 'production'),
 
@@ -227,8 +235,14 @@ export default function (buildOptions) {
                     ...ExtractTextPlugin.extract({
                       fallback: 'style-loader',
                       use: [
-                        `css-loader?importLoaders=1&localIdentName=${localIdentName}`,
-                        'postcss-loader',
+                        {
+                          loader: 'css-loader',
+                          options: {
+                            importLoaders: true,
+                            localIdentName,
+                          },
+                        },
+                        { loader: 'postcss-loader', options: postCssLoaderOptions },
                         'sass-loader?outputStyle=expanded',
                       ],
                     }),
@@ -236,8 +250,16 @@ export default function (buildOptions) {
                 })),
                 ifNode({
                   loaders: [
-                    `css-loader/locals?modules=0&sourceMap&importLoaders=1&localIdentName=${localIdentName}`,
-                    'postcss-loader',
+                    {
+                      loader: 'css-loader/locals',
+                      options: {
+                        modules: false,
+                        sourceMap: true,
+                        importLoaders: true,
+                        localIdentName,
+                      },
+                    },
+                    { loader: 'postcss-loader', options: postCssLoaderOptions },
                     'sass-loader?outputStyle=expanded&sourceMap',
                   ],
                 }),
@@ -249,11 +271,14 @@ export default function (buildOptions) {
               use: ifProdClient(
                 ExtractTextPlugin.extract({
                   fallback: 'style-loader',
-                  use: ['css-loader', 'postcss-loader'],
+                  use: [
+                    'css-loader',
+                    { loader: 'postcss-loader', options: postCssLoaderOptions },
+                  ],
                 }),
                 [
                   ...ifNode(['css-loader/locals'], ['style-loader', 'css-loader']),
-                  'postcss-loader',
+                  { loader: 'postcss-loader', options: postCssLoaderOptions },
                 ],
               ),
             }),

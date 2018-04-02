@@ -37,3 +37,9 @@ export function bool(name, defaultVal) {
     ? process.env[name] === 'true' || process.env[name] === '1'
     : defaultVal
 }
+
+export default {
+  string,
+  number,
+  bool,
+}

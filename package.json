@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "React Universal Boilerplate.",
   "license": "MIT",
-  "main": "build/server/index.js",
+  "main": "scripts/build.js",
   "engines": {
     "node": ">=6"
   },
@@ -21,43 +21,18 @@
       "git add"
     ]
   },
-  "jest": {
-    "collectCoverageFrom": [
-      "src/**/*.{js,jsx}"
-    ],
-    "snapshotSerializers": [
-      "<rootDir>/node_modules/enzyme-to-json/serializer"
-    ],
-    "testPathIgnorePatterns": [
-      "<rootDir>/(build|internal|node_modules|flow-typed|public)/"
-    ]
-  },
   "dependencies": {
     "app-root-dir": "1.0.2",
-    "assign-deep": "0.4.7",
     "chalk": "^2.3.2",
-    "classnames": "2.2.5",
-    "compression": "1.7.2",
-    "cross-env": "5.1.4",
     "dotenv": "5.0.1",
     "express": "4.16.3",
-    "helmet": "3.12.0",
-    "history": "4.7.2",
-    "hpp": "0.2.2",
-    "lodash": "4.17.5",
     "modernizr": "3.6.0",
     "offline-plugin": "5.0.0-0",
     "prop-types": "15.6.1",
-    "prop-types-extra": "1.0.1",
     "react": "16.2.0",
-    "react-addons-css-transition-group": "15.6.2",
-    "react-addons-transition-group": "15.6.2",
     "react-dom": "16.2.0",
-    "react-helmet-async": "0.0.5",
     "react-hot-loader": "4.0.0",
-    "serialize-javascript": "1.4.0"
-  },
-  "devDependencies": {
+    "serialize-javascript": "1.4.0",
     "@babel/cli": "^7.0.0-beta.42",
     "@babel/core": "7.0.0-beta.42",
     "@babel/node": "7.0.0-beta.42",
